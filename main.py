@@ -1,10 +1,11 @@
+import os
+
+import torch
+from pytorch_lightning import Trainer
+from pytorch_lightning import loggers as pl_loggers
+
 from gan import GAN
 from src.dataloader.CIFAR10_loader import CIFAR10DataModule
-import os
-import torch
-from pytorch_lightning import loggers as pl_loggers
-from pytorch_lightning import Trainer
-
 
 AVAIL_GPUS = max(0, torch.cuda.device_count())
 BATCH_SIZE = 256 if AVAIL_GPUS else 64

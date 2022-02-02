@@ -1,7 +1,7 @@
+import torchvision.transforms as transforms
 from pytorch_lightning import LightningDataModule
 from torch.utils.data import DataLoader, random_split
 from torchvision.datasets import CIFAR10
-import torchvision.transforms as transforms
 
 
 class CIFAR10DataModule(LightningDataModule):

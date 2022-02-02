@@ -1,5 +1,7 @@
 import random
+
 import numpy as np
+
 
 # SumTree
 # a binary tree data structure where the parent’s value is the sum of its children

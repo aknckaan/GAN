@@ -1,10 +1,12 @@
-from pytorch_lightning import LightningModule
-from src.dataloader.memory_buffer import Memory
-from src.network.models import Generator, Discriminator
+from collections import OrderedDict
+
+import lpips
 import torch
 import torch.nn.functional as F
-import lpips
-from collections import OrderedDict
+from pytorch_lightning import LightningModule
+
+from src.dataloader.memory_buffer import Memory
+from src.network.models import Discriminator, Generator
 
 
 class GAN(LightningModule):
