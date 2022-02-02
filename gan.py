@@ -34,10 +34,10 @@ class GAN(LightningModule):
         classes = (torch.tensor(list(range(10))).view(-1, 1, 1, 1).float() - 5) / 10
         classes = classes.repeat(1, 1, 4, 4)
 
-        self.validation_z = torch.concat([self.validation_z, classes], axis=1)
+        self.validation_z = torch.cat([self.validation_z, classes], axis=1)
 
         self.example_input_array = torch.zeros([10, 2, 4, 4])
-        self.example_input_array = torch.concat(
+        self.example_input_array = torch.cat(
             [self.example_input_array, classes], axis=1
         )
         self.loss_fn_alex = lpips.LPIPS(net="alex")
@@ -127,12 +127,12 @@ class GAN(LightningModule):
         z = torch.randn([imgs.shape[0], 2, 4, 4]).to("cuda") / 0.50 - 0.25
         classes = (lbls.view(-1, 1, 1, 1).float().to("cuda") - 5) / 10
         classes_ = classes.repeat(1, 1, 4, 4)
-        z = torch.concat([z, classes_], axis=1)
+        z = torch.cat([z, classes_], axis=1)
         classes_img_shape = classes.repeat(1, 1, *imgs.shape[-2:])
 
         disc_gen = self(z).detach()
-        fake_img = torch.concat([disc_gen, classes_img_shape], axis=1)
-        real_img = torch.concat([imgs, classes_img_shape], axis=1)
+        fake_img = torch.cat([disc_gen, classes_img_shape], axis=1)
+        real_img = torch.cat([imgs, classes_img_shape], axis=1)
 
         # discriminator
         real_dst = self.discriminator(real_img)
@@ -171,7 +171,7 @@ class GAN(LightningModule):
         valid = torch.ones(z.shape[0], 1)
         valid = valid.type_as(z)
         generated = self(z)
-        fake_img = torch.concat([generated, classes_img_shape], axis=1)
+        fake_img = torch.cat([generated, classes_img_shape], axis=1)
 
         real_dst = self.discriminator(real_img)
         fake_dst = self.discriminator(fake_img)
@@ -247,7 +247,7 @@ class GAN(LightningModule):
         classes = (torch.tensor(list(range(10))).view(-1, 1, 1, 1).float() - 5) / 10
         classes = classes.repeat(1, 1, 4, 4)
 
-        self.validation_z = torch.concat([self.validation_z, classes], axis=1)
+        self.validation_z = torch.cat([self.validation_z, classes], axis=1)
         z = self.validation_z.float().cuda()
 
         # log sampled images
