@@ -4,6 +4,7 @@ from src.network.models import Generator, Discriminator
 import torch
 import torch.nn.functional as F
 import lpips
+from collections import OrderedDict
 
 
 class GAN(LightningModule):
