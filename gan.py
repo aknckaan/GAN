@@ -3,6 +3,7 @@ from src.dataloader.memory_buffer import Memory
 from src.network.models import Generator, Discriminator
 import torch
 import torch.nn.functional as F
+import lpips
 
 
 class GAN(LightningModule):
