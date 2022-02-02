@@ -1,5 +1,5 @@
 from gan import GAN
-from src.dataloader import CIFAR10DataModule
+from src.dataloader.CIFAR10_loader import CIFAR10DataModule
 import os
 import torch
 from pytorch_lightning import loggers as pl_loggers

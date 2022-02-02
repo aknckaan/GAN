@@ -1,6 +1,6 @@
 from pytorch_lightning import LightningModule
 from src.dataloader.memory_buffer import Memory
-from src.networks.models import Generator, Discriminator
+from src.network.models import Generator, Discriminator
 import torch
 import torch.nn.functional as F
 
